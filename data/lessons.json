@@ -1,0 +1,63 @@
+{
+    lesson: [{
+        name: "Lesson 1",
+        days: ["Monday", "Wednesday", "Thursday", "Friday"]
+        start: "8:55",
+        end: "9:45"
+    },
+    {
+        name: "Lesson 2",
+        days: ["Monday", "Wednesday", "Thursday", "Friday"]
+        start: "9:45",
+        end: "10:35"
+    },
+    {
+        name: "Break",
+        days: ["Monday", "Wednesday", "Thursday", "Friday"]
+        start: "10:35",
+        end: "10:55"
+    },
+    {
+        name: "Lesson 3",
+        days: ["Monday", "Wednesday", "Thursday", "Friday"]
+        start: "10:55",
+        end: "11:45"
+    },
+    {
+        name: "Lesson 4",
+        days: ["Monday", "Wednesday", "Thursday", "Friday"]
+        start: "11:45",
+        end: "12:35"
+    },
+    {
+        name: "Assembly Tutor time",
+        days: ["Monday", "Wednesday", "Thursday", "Friday"]
+        start: "12:35",
+        end: "12:55"
+    },
+    {
+        name: "Lunch",
+        days: ["Monday", "Wednesday", "Thursday", "Friday"]
+        start: "12:55",
+        end: "13:40"
+    },
+    {
+        name: "Register",
+        days: ["Monday", "Wednesday", "Thursday", "Friday"]
+        start: "13:40",
+        end: "13:50"
+    },
+    {
+        name: "Lesson 5",
+        days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+        start: "13:50",
+        end: "14:35"
+    },
+    {
+        name: "Lesson 6",
+        days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+        start: "14:35",
+        end: "15:30"
+    },
+  ]
+}
