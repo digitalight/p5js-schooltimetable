@@ -1,0 +1,41 @@
+.container {
+  background: #555;
+  color: #fff;
+  width: 450px;
+}
+
+#currentTime {
+  margin-bottom: 2px;
+}
+
+#currentDay {
+  margin-top: 2px;
+}
+
+#currentLesson {
+  margin-top: 15px;
+}
+h1, h2, h3 {
+  margin-top: 10px;
+}
+
+/**
+ * Progress bars with centered text
+ */
+
+.progress {
+    position: relative;
+    margin-bottom: 0px;
+}
+
+.progress-bar {
+  font-size: 14px;
+}
+
+.progress span {
+    position: absolute;
+    display: block;
+    width: 100%;
+
+    color: black;
+ }
