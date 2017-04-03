@@ -3,7 +3,7 @@ A p5js project to help me keep track of what lesson it currently is at school
 
 ### Windows Binaries
 
-[Download Windows AppJS version 0.2](https://github.com/digitalight/p5js-schooltimetable/releases/download/v0.2/p5js-schooltimetable-binary.zip)
+[Download Windows Electron version 0.3b](https://github.com/digitalight/p5js-schooltimetable/releases/download/v0.3/p5js-schooltimetable.v03b.zip)
 
 
 ### Running from Node JS
