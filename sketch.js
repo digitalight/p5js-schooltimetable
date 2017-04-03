@@ -40,6 +40,7 @@ function setup() {
         var d = new Date();
         var n = d.getTime();
         currentLesson = select("#currentLesson");
+        currentLesson.html("No Lesson"); // Default is there is no lesson. Then if condition
         for (var i = 0; i < lessonsToday.length; i++) {
             if ((n > calcTime(lessonsToday[i].start)) && (n < calcTime(lessonsToday[i].end))) {
               currentLesson.html(lessonsToday[i].name);
@@ -47,11 +48,9 @@ function setup() {
               lessonEnd = lessonsToday[i].end;
               isLesson = true;
               //  console.log(lessonsToday[i].name);
-            } else {
-              currentLesson.html("No Lesson");
-              isLesson = false;
             }
         }
+
     }
 
     function timeIt() {
