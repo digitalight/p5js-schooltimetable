@@ -1,16 +1,15 @@
 var lessonData;
+var bell;
 var lessonsToday = [];
 var lessonStart;
 var lessonEnd;
 var isLesson = false;
 var percentage;
-
+var mute = true;
+var mutebutton;
 function preload() {
-//setTimeout(function(){window.open("/", "School Timetable", "width=480,height=95,titlebar=no,menubar=no,toolbar=no,scrollbars=no,resizeable=no,status=no,location=no");}, 1);
     lessonData = loadJSON("data/lessons.json");
-
-
-
+    bell = loadSound("sounds/bell.mp3");
 }
 
 function setup() {
@@ -20,6 +19,26 @@ function setup() {
     setInterval(checkLesson, 1000);
     timeIt();
     setInterval(timeIt, 1000);
+    
+    // Create mute icon
+    var mutebutton = createImg("sounds/mute.png", "Mute");
+    mutebutton.position((innerWidth/2-30),20);
+    mutebutton.show();
+    mutebutton.mousePressed(toggleSound);  // Mouse press event triggers toggleSound function
+
+    // Toggle Bell on or off
+    function toggleSound(){
+      if (mute == true){
+        console.log("Hello");
+        mute = false;
+        mutebutton.attribute("src","sounds/loud.png");
+        mutebutton.attribute("alt","Loud");
+      } else if (mute == false) {
+        mute = true;
+        mutebutton.attribute("src","sounds/mute.png");
+        mutebutton.attribute("alt","Mute");
+      }
+    }
 
     // Go through JSON and get todays lessons objects and put in lessonToday array
     function getTodayLessons() {
@@ -48,6 +67,12 @@ function setup() {
               lessonEnd = lessonsToday[i].end;
               isLesson = true;
               //  console.log(lessonsToday[i].name);
+            } else {
+              isLesson = false;
+            }
+            if ((n < calcTime(lessonsToday[i].end)) && (n > calcTime(lessonsToday[i].end)-1000) && (!mute)){
+              bell.play();
+              console.log("Ring");
             }
         }
 
