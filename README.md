@@ -5,7 +5,7 @@ A p5js project to help me keep track of what lesson it currently is at school
 
 ### Windows Binaries
 
-[Download Windows Electron version 0.3b](https://github.com/digitalight/p5js-schooltimetable/releases/download/v0.3/p5js-schooltimetable.v03b.zip)
+[Download Windows Electron version 0.4b](https://github.com/digitalight/p5js-schooltimetable/releases/download/v0.4/p5js-schooltimetable.v04b.zip)
 
 
 ### Running from Node JS
