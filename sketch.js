@@ -5,11 +5,11 @@ var lessonStart;
 var lessonEnd;
 var isLesson = false;
 var percentage;
-var mute = true;
+var mute = 0;
 var mutebutton;
 function preload() {
     lessonData = loadJSON("data/lessons.json");
-    bell = loadSound("sounds/bell.mp3");
+    bell = loadSound("sounds/bell.wav");
 }
 
 function setup() {
@@ -19,22 +19,25 @@ function setup() {
     setInterval(checkLesson, 1000);
     timeIt();
     setInterval(timeIt, 1000);
-    
+
     // Create mute icon
     var mutebutton = createImg("sounds/mute.png", "Mute");
     mutebutton.position((innerWidth/2-30),20);
     mutebutton.show();
     mutebutton.mousePressed(toggleSound);  // Mouse press event triggers toggleSound function
 
-    // Toggle Bell on or off
+    // Toggle Bell on / delay or off
     function toggleSound(){
-      if (mute == true){
-        console.log("Hello");
-        mute = false;
+      if (mute == 0){
+        mute = 1;
         mutebutton.attribute("src","sounds/loud.png");
         mutebutton.attribute("alt","Loud");
-      } else if (mute == false) {
-        mute = true;
+      } else if (mute == 1) {
+        mute = 2;
+        mutebutton.attribute("src","sounds/loud5.png");
+        mutebutton.attribute("alt","5 mins before lesson");
+      } else if (mute == 2) {
+        mute = 0;
         mutebutton.attribute("src","sounds/mute.png");
         mutebutton.attribute("alt","Mute");
       }
@@ -42,6 +45,7 @@ function setup() {
 
     // Go through JSON and get todays lessons objects and put in lessonToday array
     function getTodayLessons() {
+        lessonsToday = []; // Clear the array first
         var lessons = lessonData.lesson; // Lesson objects in JSON
         var today = dayofweek(); // Get name of today
         for (var i = 0; i < lessons.length; i++) { // Loop through every lesson object
@@ -68,11 +72,17 @@ function setup() {
               isLesson = true;
               //  console.log(lessonsToday[i].name);
             } else {
-              isLesson = false;
             }
-            if ((n < calcTime(lessonsToday[i].end)) && (n > calcTime(lessonsToday[i].end)-1000) && (!mute)){
+            if ((n < calcTime(lessonsToday[i].end)) && (n > calcTime(lessonsToday[i].end)-1000) && (mute == 1)){
               bell.play();
-              console.log("Ring");
+              // console.log("Ring");
+            }
+            if ((n < calcTime(lessonsToday[i].end)-300000) && (n > calcTime(lessonsToday[i].end)-301000) && (mute == 2)){
+              bell.play();
+              // console.log("Ring");
+            }
+            if (n == calcTime("00:01")) {
+              getTodayLessons();
             }
         }
 
@@ -89,11 +99,12 @@ function setup() {
         curtime.html(h + ":" + m + ":" + s);
         curday.html(d);
 
-          if (isLesson == true) {
+          if (isLesson) {
             select("#remaining").html(timeRemaining(lessonEnd,lessonStart)[0]);
-            select("#remain-progress").style("width", timeRemaining(lessonEnd,lessonStart)[1] + "%")
+            select("#remain-progress").style("width", timeRemaining(lessonEnd,lessonStart)[1] + "%");
           } else {
             select("#remaining").html("");
+            select("#remain-progress").style("width", "0%");
           }
     }
 
