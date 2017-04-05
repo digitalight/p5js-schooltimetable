@@ -30,7 +30,7 @@
         "end": "12:40"
     },
     {
-        "name": "Assembly Tutor time",
+        "name": "Tutor time",
         "days": ["Monday", "Wednesday", "Thursday", "Friday"],
         "start": "12:40",
         "end": "13:00"
