@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/digitalight/p5js-schooltimetable#readme",
   "devDependencies": {
-    "connect": "^3.6.1"
+    "connect": "^3.6.1",
+    "serve-static": "^1.12.1"
   }
 }
