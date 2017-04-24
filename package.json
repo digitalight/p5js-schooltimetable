@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/digitalight/p5js-schooltimetable/issues"
   },
-  "homepage": "https://github.com/digitalight/p5js-schooltimetable#readme"
+  "homepage": "https://github.com/digitalight/p5js-schooltimetable#readme",
+  "devDependencies": {
+    "connect": "^3.6.1"
+  }
 }

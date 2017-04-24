@@ -1,0 +1,24 @@
+{
+  "name": "p5js-schooltimetable",
+  "description": "To keep track of lessons at school",
+  "main": "server.js",
+  "authors": [
+    "Mike Glover"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "school"
+  ],
+  "homepage": "https://github.com/digitalight/p5js-schooltimetable",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "p5.js": "p5js#^0.5.8"
+  }
+}
